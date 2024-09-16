@@ -1,7 +1,13 @@
-# Test de la fonction
-a = int(input("Entrez la base (a): "))
-b = int(input("Entrez l'exposant (b): "))
-resultat = (a**b)
+def puissance(a, b):
+    """
+    Cette fonction prend deux arguments a et b,
+    vérifie qu'ils sont des entiers, et renvoie le résultat de a élevé à la puissance b.
+    Lève une exception TypeError si les arguments ne sont pas des entiers.
+    """
+    # Vérification des types des arguments
+    if not type(a) is int or not type(b) is int:
+        raise TypeError("Only integers are allowed")
 
-print(f"{a} élevé à la puissance {b} est {resultat}")
+    # Calcul de la puissance
+    return a ** b
 
