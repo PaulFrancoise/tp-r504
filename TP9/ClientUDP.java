@@ -12,6 +12,12 @@ public class ClientUDP
             InetAddress addr = InetAddress.getLocalHost();
             System.out.println("Adresse = " + addr.getHostName());
 
+			String s = "LA CAUTION";
+			byte[] data = s.getBytes(); 
+
+			DatagramPacket packet = new DatagramPacket( data, data.length, addr, 1234 );
+			DatagramSocket sock = new DatagramSocket(); 
+			sock.send(packet);		
 
             sock.close();
         }
