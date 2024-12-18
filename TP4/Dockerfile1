@@ -1,0 +1,31 @@
+FROM python:3
+
+# Mise à jour du système et installation des paquets nécessaires
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+    build-essential \
+    pkg-config \
+    python-dev \
+    python3-pip \
+    default-libmysqlclient-dev && \
+    # Mise à jour de pip
+    pip3 install --upgrade pip && \
+    # Installation des paquets Python
+    pip3 install flask-mysqldb mysql-connector-python
+
+# Création du dossier /srv/templates
+RUN mkdir -p /srv/templates
+
+# Copie du fichier index.html dans le dossier /srv/templates
+COPY index.html /srv/templates/
+
+# Copie du fichier app_1.py dans /srv/
+COPY app_1.py /srv/
+
+# Commande par défaut (facultatif) pour exécuter l'application, par exemple
+# CMD ["python3", "/srv/app_1.py"]
+
+# Expose un port si nécessaire (facultatif)
+# EXPOSE 5000
+

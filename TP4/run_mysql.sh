@@ -2,7 +2,7 @@
 
 # lancement serveur sql
 
-docker run --rm -d \
+docker run -d \
 	-p 3307:3306 \
 	-v vol-sql-demo:/var/lib/mysql \
 	--name tp4-sql \
